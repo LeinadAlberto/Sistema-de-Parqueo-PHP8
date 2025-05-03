@@ -27,6 +27,6 @@ if ($sentencia->execute()) {
         </script>
     <?php
 } else {
-        echo "Erro al asignar el Rol al usuario";
+        echo "Error al asignar el Rol al usuario";
 } 
 

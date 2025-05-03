@@ -24,6 +24,7 @@ include("../layout/admin/datos_usuario_sesion.php");
 
                     <div class="row mt-3">
                         <div class="col-md-3"></div>
+
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header bg-info">
@@ -48,9 +49,11 @@ include("../layout/admin/datos_usuario_sesion.php");
                                 </div><!-- /.card-body -->
                             </div><!-- /.card -->
                         </div><!-- /.col-md-6 -->
+                        
                         <div class="col-md-3"></div>
                     </div><!-- /.row -->
-                </div>
+
+                </div><!-- /.container -->
             </div><!-- /.content-wrapper -->
 
             <!-- Main Footer -->

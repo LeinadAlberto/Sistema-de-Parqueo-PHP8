@@ -30,9 +30,9 @@ include("layout/admin/datos_usuario_sesion.php");
 
                     <div class="row mt-3">
 
-                        <div class="col-md-1"></div>
+                        <!-- <div class="col-md-1"></div> -->
 
-                        <div class="col-md-10">
+                        <div class="col-md-12">
 
                             <div class="card card-outline card-info">
 
@@ -48,10 +48,23 @@ include("layout/admin/datos_usuario_sesion.php");
                                 <div class="card-body">
 
                                     <div class="row">
-                                        <div class="col-md-1 text-center">
-                                            <h2>1</h2>
-                                            <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
-                                        </div>
+                                        <?php 
+                                            $query_mapeos = $pdo->prepare("SELECT * FROM tb_mapeos WHERE estado = '1'");
+                                            $query_mapeos->execute();
+                                            $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach($mapeos as $mapeo) {
+                                                $id_map = $mapeo["id_map"];
+                                                $nro_espacio = $mapeo["nro_espacio"];
+                                                $estado_espacio = $mapeo["estado_espacio"];
+                                        ?>
+                                                <div class="col text-center">
+                                                    <h2><?php echo $nro_espacio; ?></h2>
+                                                    <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
+                                                    <p><?php echo $estado_espacio; ?></p>
+                                                </div>
+                                        <?php
+                                            }
+                                        ?>
                                     </div><!-- /.row -->
 
                                 </div><!-- /.card-body -->
@@ -60,7 +73,7 @@ include("layout/admin/datos_usuario_sesion.php");
 
                         </div><!-- /.col-md-10 -->
 
-                        <div class="col-md-1"></div>
+                        <!-- <div class="col-md-1"></div> -->
 
                     </div><!-- /.row -->
                     

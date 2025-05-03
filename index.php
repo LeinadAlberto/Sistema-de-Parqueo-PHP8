@@ -66,173 +66,27 @@ include("app/config.php");
         </nav>
 
         <div class="container">
-            <table>
-                <tr>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>1</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>2</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>3</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>4</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>5</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>6</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>7</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>8</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>9</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>10</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>11</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>12</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>13</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>14</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>15</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>16</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>17</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>18</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>19</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                    <td width="100px">
-                        <p>
-                            <center>
-                                <h3><b>20</b></h3>
-                                <img src="public/imagenes/auto.png" width="50px" alt="Imágen de vehiculo">
-                            </center>
-                        </p>
-                    </td>
-                </tr>
-            </table>
+            <div class="row mt-5">
+                <?php 
+                    $query_mapeos = $pdo->prepare("SELECT * FROM tb_mapeos WHERE estado = '1'");
+                    $query_mapeos->execute();
+                    $mapeos = $query_mapeos->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($mapeos as $mapeo) {
+                        $id_map = $mapeo["id_map"];
+                        $nro_espacio = $mapeo["nro_espacio"];
+                        $estado_espacio = $mapeo["estado_espacio"];
+                ?>
+                        <div class="col text-center">
+                            <h2><?php echo $nro_espacio; ?></h2>
+                            <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
+                            <p><?php echo $estado_espacio; ?></p>
+                        </div>
+                <?php
+                    }
+                ?>
+            </div><!-- /.row -->
+
         </div><!-- .container -->
 
         <!-- Bootstrap JS -->
