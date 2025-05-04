@@ -56,13 +56,92 @@ include("layout/admin/datos_usuario_sesion.php");
                                                 $id_map = $mapeo["id_map"];
                                                 $nro_espacio = $mapeo["nro_espacio"];
                                                 $estado_espacio = $mapeo["estado_espacio"];
+
+                                                if ($estado_espacio == "LIBRE") {
                                         ?>
-                                                <div class="col text-center">
-                                                    <h2><?php echo $nro_espacio; ?></h2>
-                                                    <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
-                                                    <p><?php echo $estado_espacio; ?></p>
-                                                </div>
+                                                    <div class="col text-center">
+                                                        <h2><?php echo $nro_espacio; ?></h2>
+                                                        <button type="button" class="btn btn-success" style="width: 100%; height: 114px;" 
+                                                            data-toggle="modal" data-target="#modal<?php echo $id_map; ?>">
+                                                            <p><?php echo $estado_espacio; ?></p>
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="modal<?php echo $id_map; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">INGRESO DEL VEHÍCULO</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group row">
+                                                                            <label for="placa" class="col-sm-2 col-form-label text-left">Placa</label>
+                                                                            <div class="col-sm-7">
+                                                                                <input type="text" class="form-control" id="placa">
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <button class="btn btn-info" style="display: flex; align-items: center;">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search mr-1" viewBox="0 0 16 16">
+                                                                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                                                    </svg>
+                                                                                    <span style="margin-top: -4px;">Buscar</span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label for="nombre" class="col-sm-2 col-form-label text-left">Nombre</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="text" class="form-control" id="nombre">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label for="nombre" class="col-sm-2 col-form-label text-left">NIT/CI</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="text" class="form-control" id="nombre">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label for="nombre" class="col-sm-4 col-form-label text-left">Fecha de ingreso</label>
+                                                                            <div class="col-sm-8">
+                                                                                <input type="date" class="form-control" id="nombre">
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label for="nombre" class="col-sm-4 col-form-label text-left">Hora de ingreso</label>
+                                                                            <div class="col-sm-8">
+                                                                                <input type="time" class="form-control" id="nombre">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                        <button type="button" class="btn btn-info">Imprimir Ticket</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                         <?php
+                                                }
+                                                if ($estado_espacio == "OCUPADO") {
+                                        ?>
+                                                    <div class="col text-center">
+                                                        <h2><?php echo $nro_espacio; ?></h2>
+                                                        <button class="btn btn-info">
+                                                            <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
+                                                        </button>
+                                                        <p><?php echo $estado_espacio; ?></p>
+                                                    </div>
+                                        <?php
+                                                }
                                             }
                                         ?>
                                     </div><!-- /.row -->

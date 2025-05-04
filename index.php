@@ -76,13 +76,27 @@ include("app/config.php");
                         $id_map = $mapeo["id_map"];
                         $nro_espacio = $mapeo["nro_espacio"];
                         $estado_espacio = $mapeo["estado_espacio"];
+                        if ($estado_espacio == "LIBRE") {
                 ?>
-                        <div class="col text-center">
-                            <h2><?php echo $nro_espacio; ?></h2>
-                            <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
-                            <p><?php echo $estado_espacio; ?></p>
-                        </div>
+                            <div class="col text-center">
+                                <h2><?php echo $nro_espacio; ?></h2>
+                                <button class="btn btn-success" style="width: 100%; height: 114px;">
+                                    <p><?php echo $estado_espacio; ?></p>
+                                </button>
+                            </div>
                 <?php
+                        }
+                        if ($estado_espacio == "OCUPADO") {
+                ?>
+                            <div class="col text-center">
+                                <h2><?php echo $nro_espacio; ?></h2>
+                                <button class="btn btn-info">
+                                    <img src="<?php echo $URL; ?>/public/imagenes/auto.png" width="60" alt="">
+                                </button>
+                                <p><?php echo $estado_espacio; ?></p>
+                            </div>
+                <?php
+                        }
                     }
                 ?>
             </div><!-- /.row -->
